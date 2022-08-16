@@ -1,0 +1,13 @@
+[gd_resource type="SpatialMaterial" load_steps=3 format=2]
+
+[sub_resource type="Gradient" id=4]
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 4 )
+
+[resource]
+albedo_color = Color( 0.827451, 0.631373, 0.423529, 1 )
+albedo_texture = SubResource( 2 )
+metallic = 0.06
+metallic_specular = 0.61
+roughness = 0.97
