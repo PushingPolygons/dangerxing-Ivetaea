@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Levels/Level1/DungeonStone.tres" type="Material" id=1]
 [ext_resource path="res://Levels/Level1/Level1.gd" type="Script" id=2]
@@ -6,18 +6,6 @@
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 25.5, 0.1, 14.5 )
-
-[sub_resource type="CubeMesh" id=6]
-size = Vector3( 25.5, 5, 0.1 )
-
-[sub_resource type="CubeMesh" id=3]
-size = Vector3( 14.5, 5, 0 )
-
-[sub_resource type="CubeMesh" id=7]
-size = Vector3( 2, 0.5, 7 )
-
-[sub_resource type="CubeMesh" id=8]
-size = Vector3( 2, 0.5, 7 )
 
 [sub_resource type="CubeMesh" id=11]
 size = Vector3( 0.8, 4, 0.5 )
@@ -76,6 +64,36 @@ material = SubResource( 15 )
 radius = 0.125
 height = 0.25
 
+[sub_resource type="CubeMesh" id=6]
+size = Vector3( 25.5, 5, 0.1 )
+
+[sub_resource type="BoxShape" id=20]
+extents = Vector3( 12.5, 2, 0.2 )
+
+[sub_resource type="CubeMesh" id=3]
+size = Vector3( 14.5, 5, 0 )
+
+[sub_resource type="BoxShape" id=21]
+extents = Vector3( 7, 2, 0.2 )
+
+[sub_resource type="BoxShape" id=22]
+extents = Vector3( 7, 2, 0.2 )
+
+[sub_resource type="CubeMesh" id=7]
+size = Vector3( 2, 0.5, 7 )
+
+[sub_resource type="BoxShape" id=23]
+extents = Vector3( 1.1, 1, 4 )
+
+[sub_resource type="CubeMesh" id=8]
+size = Vector3( 2, 0.5, 7 )
+
+[sub_resource type="BoxShape" id=24]
+extents = Vector3( 1.1, 1, 4 )
+
+[sub_resource type="BoxShape" id=25]
+extents = Vector3( 1.1, 1, 4 )
+
 [node name="Level1" type="Spatial"]
 script = ExtResource( 2 )
 
@@ -87,48 +105,10 @@ spot_range = 28.921
 mesh = SubResource( 1 )
 material/0 = ExtResource( 3 )
 
-[node name="WallNorth" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -7.2 )
-mesh = SubResource( 6 )
-material/0 = ExtResource( 1 )
-
-[node name="WallSouth" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 7.2 )
-mesh = SubResource( 6 )
-skeleton = NodePath("../WallNorth")
-material/0 = ExtResource( 1 )
-
-[node name="WallWest" type="MeshInstance" parent="."]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12.75, 2.5, 0 )
-mesh = SubResource( 3 )
-material/0 = ExtResource( 1 )
-
-[node name="WallEast" type="MeshInstance" parent="."]
-transform = Transform( 1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 12.75, 2.5, 0 )
-mesh = SubResource( 3 )
-skeleton = NodePath("../WallWest")
-material/0 = ExtResource( 1 )
-
-[node name="Obstacle1" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.313705, 3.65 )
-mesh = SubResource( 7 )
-material/0 = ExtResource( 1 )
-
-[node name="Obstacle2" type="MeshInstance" parent="."]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.6, 0.2, 1.15 )
-mesh = SubResource( 8 )
-skeleton = NodePath("../Obstacle3")
-material/0 = ExtResource( 1 )
-
-[node name="Obstacle3" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.55047, 0.62741, -3.63351 )
-mesh = SubResource( 7 )
-skeleton = NodePath("../Obstacle1")
-material/0 = ExtResource( 1 )
-
 [node name="Doors" type="Spatial" parent="."]
 
-[node name="DoorNorth" type="Area" parent="Doors"]
+[node name="DoorNorth" type="StaticBody" parent="Doors"]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="DoorFrameLeft" type="MeshInstance" parent="Doors/DoorNorth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2, -7 )
@@ -155,8 +135,8 @@ material/0 = SubResource( 18 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00513, -6.57349 )
 shape = SubResource( 19 )
 
-[node name="DoorSouth" type="Area" parent="Doors"]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+[node name="DoorSouth" type="StaticBody" parent="Doors"]
+transform = Transform( -0.7, 0, -1.50996e-07, 0, 0.7, 0, 1.05697e-07, 0, -1, 0, 0, 0 )
 
 [node name="DoorFrameLeft" type="MeshInstance" parent="Doors/DoorSouth"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2, -7 )
@@ -183,8 +163,8 @@ material/0 = SubResource( 18 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00513, -6.57349 )
 shape = SubResource( 19 )
 
-[node name="DoorWest" type="Area" parent="Doors"]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5.6, 0, 0 )
+[node name="DoorWest" type="StaticBody" parent="Doors"]
+transform = Transform( -3.0598e-08, 0, 1, 0, 0.7, 0, -0.7, 0, -4.37114e-08, -5.6, 0, 0 )
 
 [node name="DoorFrameLeft" type="MeshInstance" parent="Doors/DoorWest"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2, -7 )
@@ -211,8 +191,8 @@ material/0 = SubResource( 18 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00513, -6.57349 )
 shape = SubResource( 19 )
 
-[node name="DoorEast" type="Area" parent="Doors"]
-transform = Transform( 1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, 5.6, 0, 0 )
+[node name="DoorEast" type="StaticBody" parent="Doors"]
+transform = Transform( -3.0598e-08, 0, -1, 0, 0.7, 0, 0.7, 0, -4.37114e-08, 5.6, 0, 0 )
 
 [node name="DoorFrameLeft" type="MeshInstance" parent="Doors/DoorEast"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 2, -7 )
@@ -282,3 +262,87 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.86766, 2, 4.72703 )
 mesh = SubResource( 16 )
 skeleton = NodePath("../../Doors")
 material/0 = null
+
+[node name="North_Wall" type="StaticBody" parent="."]
+
+[node name="WallNorth" type="MeshInstance" parent="North_Wall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -7.2 )
+mesh = SubResource( 6 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="North_Wall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.97415, -7.18715 )
+shape = SubResource( 20 )
+
+[node name="South_Wall" type="StaticBody" parent="."]
+
+[node name="WallSouth" type="MeshInstance" parent="South_Wall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 7.2 )
+mesh = SubResource( 6 )
+skeleton = NodePath("../../North_Wall/WallNorth")
+material/0 = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="South_Wall"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.97415, 7.17708 )
+shape = SubResource( 20 )
+
+[node name="West_Wall" type="StaticBody" parent="."]
+
+[node name="WallWest" type="MeshInstance" parent="West_Wall"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12.75, 2.5, 0 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="West_Wall"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12.8731, 1.974, -0.08024 )
+shape = SubResource( 21 )
+
+[node name="East_Wall" type="StaticBody" parent="."]
+
+[node name="WallEast" type="MeshInstance" parent="East_Wall"]
+transform = Transform( 1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 12.75, 2.5, 0 )
+mesh = SubResource( 3 )
+skeleton = NodePath("../../West_Wall/WallWest")
+material/0 = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="East_Wall"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12.846, 1.974, -0.08024 )
+shape = SubResource( 22 )
+
+[node name="Barrier1" type="StaticBody" parent="."]
+
+[node name="Obstacle1" type="MeshInstance" parent="Barrier1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0.313705, 3.65 )
+mesh = SubResource( 7 )
+skeleton = NodePath("../..")
+material/0 = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Barrier1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.63461, 0, -4.07089 )
+shape = SubResource( 23 )
+
+[node name="Barrier2" type="StaticBody" parent="."]
+
+[node name="Obstacle2" type="MeshInstance" parent="Barrier2"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.6, 0.2, 1.15 )
+mesh = SubResource( 8 )
+skeleton = NodePath("../../Barrier3/Obstacle3")
+material/0 = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Barrier2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.95774, 0, 4.01134 )
+shape = SubResource( 24 )
+
+[node name="Barrier3" type="StaticBody" parent="."]
+
+[node name="Obstacle3" type="MeshInstance" parent="Barrier3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.55047, 0.62741, -3.63351 )
+mesh = SubResource( 7 )
+skeleton = NodePath("../../Barrier1/Obstacle1")
+material/0 = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Barrier3"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.01485, 0, 1.14196 )
+shape = SubResource( 25 )
