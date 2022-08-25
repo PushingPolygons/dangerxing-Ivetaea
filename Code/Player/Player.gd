@@ -20,7 +20,7 @@ func get_input():
 		rotation_degrees.y = 270
 	velocity = velocity.normalized() * speed
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	get_input()
 	velocity = move_and_slide(velocity)
 

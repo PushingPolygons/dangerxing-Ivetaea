@@ -222,19 +222,19 @@ shape = SubResource( 19 )
 [node name="Spawners" type="Spatial" parent="."]
 
 [node name="MobSpawn1" type="MeshInstance" parent="Spawners"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.43165, 2, 4.99487 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.43165, -4.63091, 4.99487 )
 mesh = SubResource( 10 )
 skeleton = NodePath("../../Doors")
 material/0 = null
 
 [node name="MobSpawn2" type="MeshInstance" parent="Spawners"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.33774, 2, -2.77114 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.33774, -5.82262, -2.77114 )
 mesh = SubResource( 10 )
 skeleton = NodePath("../../Doors")
 material/0 = null
 
 [node name="MobSpawn3" type="MeshInstance" parent="Spawners"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.17, 2, -5.055 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.17, -5.54718, -5.055 )
 mesh = SubResource( 10 )
 skeleton = NodePath("../../Doors")
 material/0 = null
